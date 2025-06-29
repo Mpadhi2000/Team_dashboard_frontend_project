@@ -61,16 +61,16 @@ src/
 
 ## 🚀 Available Routes
 
-| Path           | Access           | Description                  |
+| Tasks           | Access           | Description                  |
 |----------------|------------------|------------------------------|
-| `/login`       | Public            | Login screen                 |
-| `/admin`       | Admin only        | Admin dashboard              |
-| `/teams`       | Admin only        | Manage teams                 |
-| `/tasks`       | Admin + Team      | View tasks                   |
-| `/addteam`     | Admin only        | Add new team                 |
-| `/addtask`     | Admin only        | Add new task                 |
-| `/assigntask`  | Admin only        | Assign tasks to teams        |
-| `/team`        | Team Member only  | Team dashboard               |
+| `login`       | Public            | Login screen                 |
+| `admin`       | Admin only        | Admin dashboard              |
+| `teams`       | Admin only        | Manage teams                 |
+| `tasks`       | Admin + Team      | View tasks                   |
+| `Add team`     | Admin only        | Add new team                 |
+| `Add task`     | Admin only        | Add new task                 |
+| `Assign task`  | Admin only        | Assign tasks to teams        |
+| `Team`        | Team Member only  | Team dashboard               |
 
 ---
 
