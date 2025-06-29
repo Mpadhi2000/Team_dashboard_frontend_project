@@ -112,7 +112,7 @@ This documentation is written to help:
 ## 📫 Contact
 
 For help or walkthrough, contact:  
-📧 **mayankpadhi@gmail.com**
+📧 **mayankpadhi91@gmail.com**
 
 ---
 
