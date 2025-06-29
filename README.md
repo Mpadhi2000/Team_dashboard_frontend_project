@@ -59,7 +59,7 @@ src/
 
 ---
 
-## 🚀 Available Routes
+## 🚀 Tasks Access
 
 | Tasks           | Access           | Description                  |
 |----------------|------------------|------------------------------|
