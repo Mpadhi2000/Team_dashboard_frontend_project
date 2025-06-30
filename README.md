@@ -1,37 +1,50 @@
 # Team Dashboard Frontend (React + JWT)
 
 ## 📌 Project Overview
-This is the **frontend React application** for the "Team Task Manager" project, built as a headless dashboard for managing teams and tasks. It interacts with a WordPress backend using **JWT (JSON Web Token) authentication**.
+This is the frontend React application for the **Team Task Manager** project. It acts as a headless dashboard to manage teams and tasks, communicating with a WordPress backend that uses JWT (JSON Web Token) for authentication.
 
-The app provides different views and access controls for **Admins** and **Team Members**, ensuring a role-based experience across the dashboard.
+The app supports role-based access, giving Admins full control and Team Members limited view access.
+
+---
+
+## ⚠️ Important: Installing Dependencies
+
+When you first set up this project, **please install node modules using this command** to avoid peer dependency conflicts (especially with React 19):
+
+```bash
+npm install --legacy-peer-deps
+```
+
+This ensures smooth installation and avoids errors related to package version conflicts.
 
 ---
 
 ## 🎯 Purpose
-The purpose of this project is to:
-- Build a responsive task management frontend.
-- Allow login via WordPress JWT authentication.
-- Support protected routes based on user roles.
-- Enable Admins to manage teams and tasks.
-- Allow Team Members to only view assigned tasks.
+
+- Build a responsive task management frontend using React 19 (Vite)
+- Allow login via WordPress JWT authentication
+- Support protected routes based on user roles (Admin, Team Member)
+- Enable Admins to manage teams, tasks, and assignments
+- Allow Team Members to view their assigned tasks only
 
 ---
 
 ## 🛠 Tech Stack
+
 - **Frontend**: React 19 (Vite)
 - **Authentication**: JWT (token stored in localStorage)
 - **Routing**: React Router DOM v7
 - **UI Components**: Plain React (optional Bootstrap integration)
-- **Backend (WordPress)**: Exposes custom REST API + JWT
+- **Backend**: WordPress exposing custom REST API + JWT plugin
 
 ---
 
 ## 👥 Role-Based Access
 
-| Role           | Access                                            |
-|----------------|---------------------------------------------------|
-| Administrator  | Full dashboard: manage teams, tasks, assignments |
-| Team Member    | Limited to viewing tasks only                    |
+| Role          | Access                                         |
+|---------------|------------------------------------------------|
+| Administrator | Full dashboard: manage teams, tasks, assignments |
+| Team Member   | Limited to viewing only assigned tasks         |
 
 ---
 
@@ -39,73 +52,76 @@ The purpose of this project is to:
 
 ```
 src/
-├── api/              # Axios instance + auth functions
-├── components/       # Sidebar, TeamList, TaskList, Forms
-├── pages/            # Login, AdminDashboard, TeamDashboard
-├── router/           # AppRoutes.jsx (handles route setup)
-├── App.jsx           # Main app (user state + routing)
-├── main.jsx          # Entry point with <BrowserRouter>
+├── api/             # Axios instance + auth functions
+├── components/      # Sidebar, TeamList, TaskList, Forms
+├── pages/           # Login, AdminDashboard, TeamDashboard
+├── router/          # AppRoutes.jsx (handles route setup)
+├── App.jsx          # Main app (user state + routing)
+├── main.jsx         # Entry point with <BrowserRouter>
 ```
 
 ---
 
 ## 🔐 Authentication Flow
 
-1. User logs in with WordPress credentials  
-2. `/jwt-auth/v1/token` returns JWT token  
-3. Token stored in `localStorage`  
-4. `GET /wp/v2/users/me` fetches current user info + role  
-5. Routes render based on role  
+1. User logs in with WordPress credentials
+2. `/jwt-auth/v1/token` returns JWT token
+3. Token is stored in localStorage
+4. `/wp/v2/users/me` fetches current user info including role
+5. Routes render conditionally based on user role
 
 ---
 
-## 🚀 Tasks Access
+## 🚀 Tasks & Access Control
 
-| Tasks           | Access           | Description                  |
-|----------------|------------------|------------------------------|
-| `login`       | Public            | Login screen                 |
-| `admin`       | Admin only        | Admin dashboard              |
-| `teams`       | Admin only        | Manage teams                 |
-| `tasks`       | Admin + Team      | View tasks                   |
-| `Add team`     | Admin only        | Add new team                 |
-| `Add task`     | Admin only        | Add new task                 |
-| `Assign task`  | Admin only        | Assign tasks to teams        |
-| `Team`        | Team Member only  | Team dashboard               |
+| Route/Feature | Access           | Description                |
+|---------------|------------------|----------------------------|
+| `/login`      | Public           | Login screen               |
+| `/admin`      | Admin only       | Admin dashboard            |
+| `/teams`      | Admin only       | Manage teams               |
+| `/tasks`      | Admin + Team     | View tasks                 |
+| `/addteam`    | Admin only       | Add new team               |
+| `/addtask`    | Admin only       | Add new task               |
+| `/assigntask` | Admin only       | Assign tasks to teams      |
+| `/team`       | Team Member only | Team dashboard             |
 
 ---
 
 ## ✅ How to Run
 
-1. Clone the repository  
-2. Run `npm install`  
-3. Start dev server:
+1. Clone the repository
+2. Run:
+
+```bash
+npm install --legacy-peer-deps
+```
+
+3. Start the development server:
 
 ```bash
 npm run dev
 ```
 
-✅ Make sure your WordPress backend is running with JWT plugin, CORS enabled, and correct secret in `wp-config.php`.
+✅ Make sure your WordPress backend is running with JWT plugin enabled, CORS properly configured, and the secret key set in `wp-config.php`.
 
 ---
 
 ## 🧠 Why This Project Was Created
 
-This app was created to demonstrate how a frontend developer can:
-- Work with WordPress as a headless CMS
-- Implement secure login via JWT
-- Build modular and scalable React apps
-- Apply role-based access control in frontend routing
-- Collaborate with backend APIs professionally
+- To demonstrate working with WordPress as a headless CMS
+- To implement secure login via JWT
+- To build modular and scalable React apps
+- To apply role-based access control in frontend routing
+- To collaborate professionally with backend APIs
 
 ---
 
 ## 🤝 Who Can Use This?
 
-This documentation is written to help:
-- Frontend developers
+- Frontend developers learning WordPress + React integration
 - HR managers testing the UI
-- Interviewers evaluating skills
-- Full-stack collaborators connecting backend + frontend
+- Interviewers evaluating frontend skills
+- Full-stack collaborators connecting backend and frontend
 
 ---
 
@@ -116,4 +132,4 @@ For help or walkthrough, contact:
 
 ---
 
-_This project is a part of the full Team Task Manager assignment using WordPress (PHP) and React (JS)._
+_This project is part of the full Team Task Manager assignment using WordPress (PHP) and React (JS)._
